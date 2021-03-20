@@ -43,11 +43,6 @@ form h2 {
 
 .weather {
     padding: 40px;
-  
-:root {
-    --darkgreen: #2d4b1e;
-    --lightorange: #c56c39;
-    --darkorange: #99542c;
 }
 
 .searchButton {

@@ -1,2 +1,8 @@
-# National-Parks-and-Forecast-Finder
-You'll be able to search for national parks and the local forecast in the area.
+-Must use at least two server-side APIs
+-Must use a CSS Framework other than Bootstrap
+-Must use client-side storage to store presisten data
+-Must have a polished, mobile-first UI
+-Must meet good quality coding standards (indentation, scoping, naming, etc.)
+-Does NOT use alerts, confirms, or prompts (look in to modals)
+-Must be deployed to GitHub Pages
+-Must be interactive (i.e: accept and respond to user input)

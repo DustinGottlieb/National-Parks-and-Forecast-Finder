@@ -7,6 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>National Parks Search</title>
     <link rel="stylesheet" href="./assets/script.css" />
+    <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
 </head>
 
 <body>
@@ -15,18 +18,22 @@
             <h1>National Parks Stuff</h1>
         </header>
 
-        <form>
-            <h2>Search by Zip Code</h2>
-            <input>
-            <button></button>
-        </form>
-
-        <section>
-            <div>List of parks</div>
-        </section>
-        <section>
-            <div>Weather forecast</div>
-        </section>
+        <div class="container">
+            <form>
+                <h2>Search by Zip Code</h2>
+                <input>
+                <button></button>
+            </form>
+            
+            <section class="d-flex">
+                <div class="parks">
+                    <h2>List of Parks</h2>
+                </div>
+                <div class="weather">
+                    <h2>Weather forecast</h2>
+                </div>
+            </section>
+        </div>
     </main>
 
     <script src="./assets/script.js"></script>

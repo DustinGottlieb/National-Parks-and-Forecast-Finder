@@ -1,3 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@600&family=Della+Respira&display=swap');
+
+:root {
+    --darkgreen: #2D4B1E;
+    --lightorange: #C56C39;
+    --darkorange: #99542C;
+}
+
+* {
+    font-family: 'Comfortaa', cursive;
+    font-weight: bold;
+    background-color: lightgrey;
+}
+
+main {
+    text-align: center;
+    color: var(--darkgreen);
+}
+
+header {
+    text-align: center;
+    padding: 40px;
+    color: var(--lightorange);
+    background-color: var(--darkgreen);
+}
+
+h1 {
+    background-color: var(--darkgreen);
+    font-size: xx-large;
+}
+
+form {
+    padding: 40px;
+}
+
+form h2 {
+    padding: 10px;
+}
+
+.parks {
+    padding: 40px;
+}
+
+.weather {
+    padding: 40px;
+  
 :root {
     --darkgreen: #2d4b1e;
     --lightorange: #c56c39;

@@ -15,19 +15,18 @@
 main {
     text-align: center;
     color: var(--darkgreen);
-
 }
 
 header {
     text-align: center;
     padding: 40px;
-    font-size: 10rem;
     color: var(--lightorange);
     background-color: var(--darkgreen);
 }
 
 h1 {
     background-color: var(--darkgreen);
+    font-size: xx-large;
 }
 
 form {

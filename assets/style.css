@@ -37,6 +37,10 @@ form h2 {
     padding: 10px;
 }
 
+input {
+    height: 38px;
+}
+
 .parks {
     padding: 40px;
 }

@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@600&family=Della+Respira&display=swap');
-
 :root {
     --darkgreen: #2D4B1E;
     --lightorange: #C56C39;
@@ -43,11 +42,6 @@ form h2 {
 
 .weather {
     padding: 40px;
-  
-:root {
-    --darkgreen: #2d4b1e;
-    --lightorange: #c56c39;
-    --darkorange: #99542c;
 }
 
 .searchButton {

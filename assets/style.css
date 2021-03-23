@@ -42,6 +42,35 @@ input {
 
 .parks {
     padding: 40px;
+    text-align: center;
+}
+
+.parks h2 {
+    margin-bottom: 35px;
+    color: var(--lightorange);
+}
+
+ul {
+    list-style-type: none;
+    text-align: center;
+    padding: 0;
+}
+
+.listItem {
+    border: 5px solid var(--darkorange);
+    padding: 15px;
+    margin-bottom: 30px;
+    border-radius: 25px;
+    box-shadow: 10px 5px 5px var(--darkgreen);
+}
+
+.weatherBtn {
+    border-radius: 5px;
+    transition: background 0.3s ease-in-out;
+}
+
+.weatherBtn:hover {
+    background: var(--darkorange);
 }
 
 .weather {

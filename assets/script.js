@@ -1,3 +1,4 @@
+var form = document.querySelector("form");
 var input = document.querySelector("input");
 var searchBtn = document.querySelector(".searchButton");
 var parks = document.querySelector(".parks");
@@ -7,6 +8,7 @@ var inputValue = "";
 
 searchBtn.addEventListener("click", function (event) {
   event.preventDefault();
+  list.innerHTML = "";
   inputValue = input.value;
   console.log(inputValue);
 
@@ -30,8 +32,10 @@ searchBtn.addEventListener("click", function (event) {
         parkName.setAttribute("style", "font-size: 30px");
         description.setAttribute("class", "description");
         button.setAttribute("class", "weatherBtn");
-        button.textContent = "Check Weather";
+        button.textContent = "Check Weather ⛅";
       }
+
+
 
       for (var i = 0; i < response.data.length; i++) {
         var item = document.createElement("li");
@@ -43,7 +47,10 @@ searchBtn.addEventListener("click", function (event) {
 
         parkName.textContent = response.data[i].fullName;
         description.textContent = response.data[i].description;
+
+        form.reset();
       }
+      
     });
 });
 

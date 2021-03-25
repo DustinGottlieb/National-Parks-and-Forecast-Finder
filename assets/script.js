@@ -4,6 +4,10 @@ var searchBtn = document.querySelector(".searchButton");
 var parks = document.querySelector(".parks");
 var list = document.querySelector(".parkContainer");
 var weather = document.querySelector(".weather");
+var weatherBox = document.createElement("div");
+var date = document.createElement("p");
+var temp = document.createElement("p");
+var conditions = document.createElement("p");
 var inputValue = "";
 
 searchBtn.addEventListener("click", function (event) {
@@ -28,6 +32,10 @@ searchBtn.addEventListener("click", function (event) {
         item.appendChild(parkName);
         item.appendChild(description);
         item.appendChild(button);
+        item.appendChild(weatherBox);
+        weatherBox.appendChild(date);
+        weatherBox.appendChild(temp);
+        weatherBox.appendChild(conditions);
         item.setAttribute("class", "listItem");
         parkName.setAttribute("style", "font-size: 30px");
         description.setAttribute("class", "description");
@@ -35,13 +43,36 @@ searchBtn.addEventListener("click", function (event) {
         button.textContent = "Check Weather ⛅";
       }
 
-
-
       for (var i = 0; i < response.data.length; i++) {
         var item = document.createElement("li");
         var parkName = document.createElement("p");
         var description = document.createElement("p");
         var button = document.createElement("button");
+        // button.setAttribute("id", response.data[i].longitude.toString());
+
+        // button.addEventListener("click", function() {
+        var longitude = response.data[i].longitude;
+        var latitude = response.data[i].latitude;
+
+        fetch(
+          `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&units=imperial&exclude=minutely,hourly,alerts&appid=e855ba782204791deaddac674c970432`
+        )
+          .then(function (response) {
+            return response.json();
+          })
+          .then(function (response) {
+            console.log(response);
+          });
+
+        for (var i = 0; i < 5; i++) {
+          
+          date.textContent = moment().format("dd l");
+        }
+
+        // TODO: connect coordinates to OpenWeather one call API
+        // TODO: attach relevant data to page
+
+        // })
 
         listItems();
 
@@ -50,14 +81,5 @@ searchBtn.addEventListener("click", function (event) {
 
         form.reset();
       }
-      
     });
 });
-
-// TODO: Add listener to button
-// TODO: Attach button to input field
-// TODO: prevent default
-// TODO: Fetch data from both APIs relating to zip code
-// TODO: local storage previous search inside input field
-// TODO: In parks section, display list of relevant parks
-// TODO: In weather section, display 7-day forecast

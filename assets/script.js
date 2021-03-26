@@ -3,11 +3,7 @@ var input = document.querySelector("input");
 var searchBtn = document.querySelector(".searchButton");
 var parks = document.querySelector(".parks");
 var list = document.querySelector(".parkContainer");
-var weather = document.querySelector(".weather");
-var weatherBox = document.createElement("div");
-var date = document.createElement("p");
-var temp = document.createElement("p");
-var conditions = document.createElement("p");
+
 var inputValue = "";
 
 searchBtn.addEventListener("click", function (event) {
@@ -32,10 +28,12 @@ searchBtn.addEventListener("click", function (event) {
         item.appendChild(parkName);
         item.appendChild(description);
         item.appendChild(button);
-        item.appendChild(weatherBox);
-        weatherBox.appendChild(date);
-        weatherBox.appendChild(temp);
-        weatherBox.appendChild(conditions);
+        item.appendChild(weatherContainer);
+        weatherContainer.appendChild(weatherBox1);
+        weatherContainer.appendChild(date1);
+        weatherContainer.appendChild(temp1);
+        weatherContainer.appendChild(conditions1);
+
         item.setAttribute("class", "listItem");
         parkName.setAttribute("style", "font-size: 30px");
         description.setAttribute("class", "description");
@@ -43,41 +41,44 @@ searchBtn.addEventListener("click", function (event) {
         button.textContent = "Check Weather ⛅";
       }
 
-      for (var i = 0; i < response.data.length; i++) {
-        var item = document.createElement("li");
-        var parkName = document.createElement("p");
-        var description = document.createElement("p");
-        var button = document.createElement("button");
-        // button.setAttribute("id", response.data[i].longitude.toString());
+      var parkNumber = response.data.length;
 
-        // button.addEventListener("click", function() {
+      function weather() {
         var longitude = response.data[i].longitude;
         var latitude = response.data[i].latitude;
 
         fetch(
-          `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&units=imperial&exclude=minutely,hourly,alerts&appid=e855ba782204791deaddac674c970432`
+          `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&units=imperial&exclude=minutely,hourly,alerts&appid=559a0a1d51db545bab6fe7ef56826991`
         )
           .then(function (response) {
             return response.json();
           })
           .then(function (response) {
             console.log(response);
+
+            for (var i = 0; i < parkNumber; i++) {
+            temp1.textContent = "Temp: " + response.daily[1].temp.day;
+            }
           });
+      }
 
-        for (var i = 0; i < 5; i++) {
-          
-          date.textContent = moment().format("dd l");
-        }
-
-        // TODO: connect coordinates to OpenWeather one call API
-        // TODO: attach relevant data to page
-
-        // })
+      for (var i = 0; i < parkNumber; i++) {
+        var item = document.createElement("li");
+        var parkName = document.createElement("p");
+        var description = document.createElement("p");
+        var button = document.createElement("button");
+        var weatherContainer = document.createElement("div");
+        var weatherBox1 = document.createElement("div");
+        var date1 = document.createElement("p");
+        var temp1 = document.createElement("p");
+        var conditions1 = document.createElement("p");
 
         listItems();
+        weather();
 
         parkName.textContent = response.data[i].fullName;
         description.textContent = response.data[i].description;
+        date1.textContent = moment().add(1, "days").format("dd l");
 
         form.reset();
       }

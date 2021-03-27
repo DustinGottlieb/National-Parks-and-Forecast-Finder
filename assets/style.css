@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@600&family=Della+Respira&display=swap');
+
 :root {
     --darkgreen: #2D4B1E;
     --lightorange: #C56C39;
@@ -6,6 +7,7 @@
 }
 
 * {
+
     font-family: 'Comfortaa', cursive;
     font-weight: bold;
     background-color: lightgrey;
@@ -25,29 +27,34 @@ header {
 
 h1 {
     background-color: var(--darkgreen);
-    font-size: 5rem;
+
+    font-size: xx-large;
 }
 
-form {
-    padding: 40px;
-}
-
-form h2 {
-    padding: 10px;
-}
-
-input {
-    height: 38px;
-}
-
-.parks {
-    padding: 40px;
+ul{
+    list-style-type: none;
     text-align: center;
+    padding:0;
+
 }
 
-.parks h2 {
+li{
+    list-style-type: none;
+    flex-direction: row;
+}
+
+.parks h2{
     margin-bottom: 35px;
     color: var(--lightorange);
+}
+
+
+.list{
+    border: 5px solid var(--darkorange);
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 25px;
+    box-shadow: 3px 3px 3px #99542C;
 }
 
 ul {
@@ -70,8 +77,25 @@ ul {
     transition: background 0.3s ease-in-out;
 }
 
-.weatherBtn:hover {
+
+.buttonBtn:hover{
     background: var(--darkorange);
+}
+}
+form {
+    padding: 40px;
+}
+
+form h2 {
+    padding: 10px;
+}
+
+input {
+    height: 38px;
+}
+
+.parks {
+    padding: 40px;
 }
 
 .weather {

@@ -1,85 +1,86 @@
-var form = document.querySelector("form");
 var input = document.querySelector("input");
+var form = document.querySelector("form");
 var searchBtn = document.querySelector(".searchButton");
 var parks = document.querySelector(".parks");
-var list = document.querySelector(".parkContainer");
 var weather = document.querySelector(".weather");
-var weatherBox = document.createElement("div");
-var date = document.createElement("p");
-var temp = document.createElement("p");
-var conditions = document.createElement("p");
+var list = document.querySelector(".list-group");
+var form = document.querySelector("form");
 var inputValue = "";
 
 searchBtn.addEventListener("click", function (event) {
-  event.preventDefault();
-  list.innerHTML = "";
-  inputValue = input.value;
-  console.log(inputValue);
+    event.preventDefault();
+    inputValue = input.value;
+    list.innerHTML = "";
+    console.log(inputValue);
 
-  fetch(
-    "https://developer.nps.gov/api/v1/parks?stateCode=" +
-      inputValue +
-      "&api_key=lgFCFNbkwBuzzWQoYnMJzc4aPB8HHSXAZcZYbbIH"
-  )
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (response) {
-      console.log(response);
-
-      function listItems() {
-        list.appendChild(item);
-        item.appendChild(parkName);
-        item.appendChild(description);
-        item.appendChild(button);
-        item.appendChild(weatherBox);
-        weatherBox.appendChild(date);
-        weatherBox.appendChild(temp);
-        weatherBox.appendChild(conditions);
-        item.setAttribute("class", "listItem");
-        parkName.setAttribute("style", "font-size: 30px");
-        description.setAttribute("class", "description");
-        button.setAttribute("class", "weatherBtn");
-        button.textContent = "Check Weather ⛅";
-      }
-
-      for (var i = 0; i < response.data.length; i++) {
-        var item = document.createElement("li");
-        var parkName = document.createElement("p");
-        var description = document.createElement("p");
-        var button = document.createElement("button");
-        // button.setAttribute("id", response.data[i].longitude.toString());
-
-        // button.addEventListener("click", function() {
-        var longitude = response.data[i].longitude;
-        var latitude = response.data[i].latitude;
-
-        fetch(
-          `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&units=imperial&exclude=minutely,hourly,alerts&appid=e855ba782204791deaddac674c970432`
-        )
-          .then(function (response) {
+    fetch("https://developer.nps.gov/api/v1/parks?stateCode=" + inputValue + "&api_key=lgFCFNbkwBuzzWQoYnMJzc4aPB8HHSXAZcZYbbIH")
+        .then(function (response) {
             return response.json();
-          })
-          .then(function (response) {
+        })
+        .then(function (response) {
             console.log(response);
-          });
 
-        for (var i = 0; i < 5; i++) {
-          
-          date.textContent = moment().format("dd l");
-        }
+            for (i = 0; i < response.data.length; i++) {
+                var items = document.createElement("li");
+                var parkName = document.createElement("h3");
+                var description = document.createElement("p");
+                var button = document.createElement("button");
+                var weather = document.querySelector(".weather");
+                var weatherBox = document.createElement("div");
+                var days = '';
 
-        // TODO: connect coordinates to OpenWeather one call API
-        // TODO: attach relevant data to page
 
-        // })
 
-        listItems();
+                var longitude = response.data[i].longitude;
+                var latitude = response.data[i].latitude;
 
-        parkName.textContent = response.data[i].fullName;
-        description.textContent = response.data[i].description;
+                button.addEventListener("click", function (e) {
+                    fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&units=imperial&exclude=minutely,hourly,alerts&appid=559a0a1d51db545bab6fe7ef56826991`
+                    )
+                        .then(function (response) {
+                            return response.json();
+                        })
+                        .then(function (response) {
+                            console.log(response);
 
-        form.reset();
-      }
-    });
+                            for(let i =0; i < 5; i++ ) {
+                                days = days+
+                                  `<li class="day"><div class="date">${moment.unix(response.daily[i].dt).format(" dddd MMMM Do YYYY")}</div>
+                                  <div class="temp">${response.daily[i].temp.day}</div>
+                                  <div class="condition">${response.daily[i].weather[0].description}</div></li>`
+                              }
+                              weatherBox.innerHTML = `<ol class="weather-box">${days}</ol>`
+                              e.target.parentNode.appendChild(weatherBox);
+                            })
+
+
+                })
+
+                listItem();
+
+                form.reset();
+
+                button.textContent = "Local Weather"
+                parkName.textContent = response.data[i].fullName;
+                description.textContent = response.data[i].description;
+            }
+
+
+            function listItem() {
+                list.appendChild(items);
+                items.appendChild(parkName);
+                items.appendChild(description);
+                items.appendChild(button);
+
+
+                items.setAttribute("class", "list")
+                parkName.setAttribute("class", "ParkName");
+                description.setAttribute("class", "description");
+                button.setAttribute("class", "buttonBtn");
+            }
+
+
+
+        })
+
 });

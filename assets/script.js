@@ -28,9 +28,13 @@ searchBtn.addEventListener("click", function (event) {
         var items = document.createElement("li");
         var parkName = document.createElement("h3");
         var description = document.createElement("p");
+        var parkImage = document.createElement("img");
         var button = document.createElement("button");
         var weatherBox = document.createElement("div");
         var days = "";
+
+        var parkImage = document.createElement('img');
+        parkImage.src = response.data[i].images[0].url;
 
         let longitude = response.data[i].longitude;
         let latitude = response.data[i].latitude;
@@ -52,18 +56,10 @@ searchBtn.addEventListener("click", function (event) {
               for (let x = 0; x < 5; x++) {
                 days =
                   days +
-                  `<li class="day"><div class="date">${moment
-                    .unix(response.daily[x].dt)
-                    .format("dd l")}</div>
-                                  <img class="icon" src="http://openweathermap.org/img/wn/${
-                                    response.daily[x].weather[0].icon
-                                  }@2x.png"></img>
-                                  <div class="temp">Temp: ${Math.round(
-                                    response.daily[x].temp.day
-                                  )}°</div>
-                                  <div class="condition">${
-                                    response.daily[x].weather[0].description
-                                  }</div></li>`;
+                  `<li class="day"><div class="date">${moment.unix(response.daily[x].dt).format("dd l")}</div>
+                    <img class="icon" src="http://openweathermap.org/img/wn/${response.daily[x].weather[0].icon}@2x.png"></img>
+                    <div class="temp">Temp: ${Math.round(response.daily[x].temp.day)}°</div>
+                    <div class="condition">${response.daily[x].weather[0].description}</div></li>`;
               }
               weatherBox.innerHTML = `<ol class="weather-box">${days}</ol>`;
               e.target.parentNode.appendChild(weatherBox);
@@ -81,6 +77,7 @@ searchBtn.addEventListener("click", function (event) {
 
       function listItem() {
         list.appendChild(items);
+        items.appendChild(parkImage);
         items.appendChild(parkName);
         items.appendChild(description);
         items.appendChild(button);
@@ -89,6 +86,7 @@ searchBtn.addEventListener("click", function (event) {
         parkName.setAttribute("class", "ParkName");
         description.setAttribute("class", "description");
         button.setAttribute("class", "buttonBtn");
+        parkImage.setAttribute("class", "parkImage");
       }
     });
 });

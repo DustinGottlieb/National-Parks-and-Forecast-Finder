@@ -25,10 +25,9 @@ header {
     background-color: var(--darkgreen);
 }
 
-h1 {
+.title {
     background-color: var(--darkgreen);
-
-    font-size: xx-large;
+    font-size: 4rem;
 }
 
 ul{
@@ -77,7 +76,6 @@ ul {
     transition: background 0.3s ease-in-out;
 }
 
-
 .buttonBtn:hover{
     background: var(--darkorange);
 }
@@ -98,15 +96,44 @@ input {
     padding: 40px;
 }
 
+.parkName {
+    font-weight: bold;
+    font-size: large;
+}
+
 .weather-box {
-    padding: 40px;
+    padding: 20px;
     display: flex;
     justify-content: center;
     justify-content: space-evenly;
+    clear: both;
+}
+
+.parkImage {
+    float: left;
+    padding: 10px;
+    border-radius: 20px;
+    height: calc(100vh - 250px);
+}
+
+.day {
+    padding: 5px;
+    width: 170px;
+    height: 250px;
+    border: 3px solid var(--lightorange);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: ivory;
+}
+
+.day, .temp, .icon, .date, .condition {
+    background-color: rgb(133, 152, 171);
 }
 
 .searchButton {
-    padding: 5px;
+    padding: 8px;
     background: var(--lightorange);
     border-radius: 5px;
     transition: background 0.3s ease-in-out;
@@ -114,4 +141,19 @@ input {
 
 .searchButton:hover {
     background: var(--darkorange);
+}
+
+@media screen and (max-width: 1024px) {
+    .weather-box {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    .parkImage {
+        width: 100%;
+    }
+
 }

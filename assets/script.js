@@ -5,6 +5,7 @@ var parks = document.querySelector(".parks");
 var list = document.querySelector(".parkContainer");
 
 var inputValue = "";
+var temp1Text = "";
 
 searchBtn.addEventListener("click", function (event) {
   event.preventDefault();
@@ -29,10 +30,10 @@ searchBtn.addEventListener("click", function (event) {
         item.appendChild(description);
         item.appendChild(button);
         item.appendChild(weatherContainer);
-        weatherContainer.appendChild(weatherBox1);
-        weatherContainer.appendChild(date1);
-        weatherContainer.appendChild(temp1);
-        weatherContainer.appendChild(conditions1);
+        weatherContainer.appendChild(weatherBox1)
+        weatherBox1.appendChild(date1);
+        weatherBox1.appendChild(temp1);
+        weatherBox1.appendChild(conditions1);
 
         item.setAttribute("class", "listItem");
         parkName.setAttribute("style", "font-size: 30px");
@@ -41,11 +42,11 @@ searchBtn.addEventListener("click", function (event) {
         button.textContent = "Check Weather ⛅";
       }
 
-      var parkNumber = response.data.length;
+      var parkNumber = response.data;
 
       function weather() {
-        var longitude = response.data[i].longitude;
         var latitude = response.data[i].latitude;
+        var longitude = response.data[i].longitude;
 
         fetch(
           `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&units=imperial&exclude=minutely,hourly,alerts&appid=559a0a1d51db545bab6fe7ef56826991`
@@ -56,13 +57,14 @@ searchBtn.addEventListener("click", function (event) {
           .then(function (response) {
             console.log(response);
 
-            for (var i = 0; i < parkNumber; i++) {
-            temp1.textContent = "Temp: " + response.daily[1].temp.day;
-            }
+            // for (var i = 0; i < parkNumber.length; i++) {
+            temp1Text = temp1.textContent = "Temp: " + response.daily[1].temp.day;
+            // parkNumber[i++];
+            // }
           });
       }
 
-      for (var i = 0; i < parkNumber; i++) {
+      for (var i = 0; i < parkNumber.length; i++) {
         var item = document.createElement("li");
         var parkName = document.createElement("p");
         var description = document.createElement("p");
@@ -74,11 +76,14 @@ searchBtn.addEventListener("click", function (event) {
         var conditions1 = document.createElement("p");
 
         listItems();
-        weather();
 
         parkName.textContent = response.data[i].fullName;
         description.textContent = response.data[i].description;
         date1.textContent = moment().add(1, "days").format("dd l");
+        temp1.textContent = "Temp";
+        conditions1.textContent = "Conditions";
+
+        weather();
 
         form.reset();
       }

@@ -30,7 +30,7 @@ searchBtn.addEventListener("click", function (event) {
         item.appendChild(description);
         item.appendChild(button);
         item.appendChild(weatherContainer);
-        weatherContainer.appendChild(weatherBox1)
+        weatherContainer.appendChild(weatherBox1);
         weatherBox1.appendChild(date1);
         weatherBox1.appendChild(temp1);
         weatherBox1.appendChild(conditions1);
@@ -39,6 +39,8 @@ searchBtn.addEventListener("click", function (event) {
         parkName.setAttribute("style", "font-size: 30px");
         description.setAttribute("class", "description");
         button.setAttribute("class", "weatherBtn");
+        weatherContainer.setAttribute("class", "weatherContainer");
+        weatherBox1.setAttribute("class", "weatherBox");
         button.textContent = "Check Weather ⛅";
       }
 
@@ -58,7 +60,8 @@ searchBtn.addEventListener("click", function (event) {
             console.log(response);
 
             // for (var i = 0; i < parkNumber.length; i++) {
-            temp1Text = temp1.textContent = "Temp: " + response.daily[1].temp.day;
+            temp1Text = temp1.textContent =
+              "Temp: " + response.daily[1].temp.day;
             // parkNumber[i++];
             // }
           });
@@ -87,5 +90,9 @@ searchBtn.addEventListener("click", function (event) {
 
         form.reset();
       }
+
+      button.addEventListener("click", function () {
+        weatherBox1.setAttribute("style", "display: block");
+      });
     });
 });

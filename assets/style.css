@@ -65,6 +65,22 @@ ul {
     background-color: lightgray;
 }
 
+.weatherContainer {
+    display: none;
+    padding-top: 20px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.weatherBox {
+    display: none;
+    padding: 10px;
+    border: 4px solid var(--lightorange);
+    border-radius: 25px;
+    width: 150px;
+}
+
 .weatherBtn {
     border-radius: 5px;
     transition: background 0.3s ease-in-out;

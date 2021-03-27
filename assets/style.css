@@ -23,31 +23,33 @@ header {
     background-color: var(--darkgreen);
 }
 
-h1 {
+.title {
     background-color: var(--darkgreen);
-    font-size: 5rem;
+    font-size: 4rem;
 }
 
-form {
-    padding: 40px;
-}
-
-form h2 {
-    padding: 10px;
-}
-
-input {
-    height: 38px;
-}
-
-.parks {
-    padding: 40px;
+ul {
+    list-style-type: none;
     text-align: center;
+    padding: 0;
+}
+
+li {
+    list-style-type: none;
+    flex-direction: row;
 }
 
 .parks h2 {
     margin-bottom: 35px;
     color: var(--lightorange);
+}
+
+.list {
+    border: 5px solid var(--darkorange);
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 25px;
+    box-shadow: 3px 3px 3px #99542C;
 }
 
 ul {
@@ -65,26 +67,87 @@ ul {
     background-color: lightgray;
 }
 
-.weatherBtn {
-    border-radius: 5px;
-    transition: background 0.3s ease-in-out;
-}
-
-.weatherBtn:hover {
-    background: var(--darkorange);
-}
-
-.weather {
+form {
     padding: 40px;
 }
 
-.searchButton {
+form h2 {
+    padding: 10px;
+}
+
+input {
+    height: 38px;
+}
+
+.parks {
+    padding: 40px;
+}
+
+.parkName {
+    font-weight: bold;
+    font-size: large;
+}
+
+.weather-box {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    justify-content: space-evenly;
+    clear: both;
+}
+
+.parkImage {
+    float: left;
+    padding: 10px;
+    border-radius: 20px;
+    /*width: calc(100vh - 300px);*/
+    max-width: 350px;
+    max-height: 250px;
+}
+
+.day {
     padding: 5px;
+    width: 170px;
+    height: 250px;
+    border: 3px solid var(--lightorange);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: ivory;
+}
+
+.day,
+.temp,
+.icon,
+.date,
+.condition {
+    background-color: rgb(133, 152, 171);
+}
+
+.searchButton,
+.buttonBtn {
+    padding: 8px;
     background: var(--lightorange);
     border-radius: 5px;
     transition: background 0.3s ease-in-out;
 }
 
-.searchButton:hover {
+.searchButton:hover,
+.buttonBtn:hover {
     background: var(--darkorange);
+}
+
+@media screen and (max-width: 1024px) {
+    .weather-box {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+    .parkImage {
+        width: 100%;
+        object-fit: contain;
+    }
 }

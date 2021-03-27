@@ -5,7 +5,7 @@ var parks = document.querySelector(".parks");
 var list = document.querySelector(".parkContainer");
 
 var inputValue = "";
-var temp1Text = "";
+// var temp1Text = "";
 
 searchBtn.addEventListener("click", function (event) {
   event.preventDefault();
@@ -60,8 +60,7 @@ searchBtn.addEventListener("click", function (event) {
             console.log(response);
 
             // for (var i = 0; i < parkNumber.length; i++) {
-            temp1Text = temp1.textContent =
-              "Temp: " + response.daily[1].temp.day;
+            temp1.textContent = "Temp: " + response.daily[1].temp.day;
             // parkNumber[i++];
             // }
           });

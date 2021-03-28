@@ -20,12 +20,16 @@ header {
     text-align: center;
     padding: 40px;
     color: var(--lightorange);
-    background-color: var(--darkgreen);
+    background: linear-gradient(180deg, rgba(91, 139, 67, 1) 0%, rgba(16, 34, 15, 1) 82%, rgba(153, 84, 44, 1) 100%);
 }
 
 .title {
-    background-color: var(--darkgreen);
+    background: transparent;
     font-size: 4rem;
+}
+
+#quote {
+    background: transparent;
 }
 
 ul {

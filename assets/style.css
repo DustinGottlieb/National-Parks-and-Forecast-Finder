@@ -20,7 +20,7 @@ header {
     text-align: center;
     padding: 40px;
     color: var(--lightorange);
-    background: linear-gradient(180deg, rgba(91, 139, 67, 1) 0%, rgba(16, 34, 15, 1) 82%, rgba(153, 84, 44, 1) 100%);
+    background: linear-gradient(180deg, rgba(91, 139, 67) 0%, rgba(16, 34, 15) 82%, rgba(153, 84, 44) 100%);
 }
 
 .title {
@@ -104,7 +104,6 @@ input {
     float: left;
     padding: 10px;
     border-radius: 20px;
-    /*width: calc(100vh - 300px);*/
     max-width: 350px;
     max-height: 250px;
 }

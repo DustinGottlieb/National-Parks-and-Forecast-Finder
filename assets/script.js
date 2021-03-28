@@ -7,11 +7,15 @@ var list = document.querySelector(".list-group");
 var form = document.querySelector("form");
 var inputValue = "";
 
+renderLastInput();
+
 searchBtn.addEventListener("click", function (event) {
   event.preventDefault();
   inputValue = input.value;
   list.innerHTML = "";
   console.log(inputValue);
+
+  localStorage.setItem("stateName", inputValue);
 
   fetch(
     "https://developer.nps.gov/api/v1/parks?stateCode=" +
@@ -90,3 +94,14 @@ searchBtn.addEventListener("click", function (event) {
       }
     });
 });
+
+function renderLastInput() {
+    var lastInput = localStorage.getItem("stateName");
+  
+    if (!lastInput) {
+      return;
+    }
+  
+    input.value = lastInput;
+}
+  

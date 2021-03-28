@@ -60,7 +60,7 @@ searchBtn.addEventListener("click", function(event) {
 
                 var parkImage = document.createElement('img');
                 parkImage.src = response.data[i].images[0].url;
-                parkImage.alt= response.data[i].images[0].altText
+                parkImage.alt = response.data[i].images[0].altText
 
                 let longitude = response.data[i].longitude;
                 let latitude = response.data[i].latitude;

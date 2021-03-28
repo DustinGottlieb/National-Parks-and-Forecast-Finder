@@ -90,7 +90,7 @@ form h2 {
 
 input {
     height: 38px;
-    background-color: rgb(112, 159, 106);
+    background-color: rgb(153, 199, 147);
 }
 
 .parks {
@@ -114,7 +114,8 @@ input {
     float: left;
     padding: 10px;
     border-radius: 20px;
-    height: calc(100vh - 250px);
+    max-width: 350px;
+    max-height: 250px;
 }
 
 .day {
@@ -155,6 +156,7 @@ input {
 
     .parkImage {
         width: 100%;
+        object-fit: contain;
     }
 
 }

@@ -1,3 +1,4 @@
+/*Defining variables for user input, search button, park and weather list, quote generator*/
 var input = document.querySelector("input");
 var form = document.querySelector("form");
 var searchBtn = document.querySelector(".searchButton");
@@ -30,19 +31,20 @@ var Quotes = [
 
   '"The wilderness holds answers to questions man has not yet learned to ask." — Nancy Newhall',
 ];
+/*picking a random quote from the Quotes array and placing it in the header*/
 var z = Math.floor(Math.random() * (Quotes.length - 1));
 docQuote.innerHTML = Quotes[z];
 
 renderLastInput();
-
+/*adding event listener for the search button*/
 searchBtn.addEventListener("click", function (event) {
   event.preventDefault();
   inputValue = input.value;
   list.innerHTML = "";
   console.log(inputValue);
-
+  /*storing search history locally*/
   localStorage.setItem("stateName", inputValue);
-
+  /*fetching the data from parks API*/
   fetch(
     "https://developer.nps.gov/api/v1/parks?stateCode=" +
       inputValue +
@@ -53,7 +55,7 @@ searchBtn.addEventListener("click", function (event) {
     })
     .then(function (response) {
       console.log(response);
-
+    /*looping through the data to generate html display*/
       for (let i = 0; i < response.data.length; i++) {
         var items = document.createElement("li");
         var parkName = document.createElement("h3");
@@ -62,14 +64,14 @@ searchBtn.addEventListener("click", function (event) {
         var button = document.createElement("button");
         var weatherBox = document.createElement("div");
         var days = "";
-
+        
         var parkImage = document.createElement("img");
         parkImage.src = response.data[i].images[0].url;
         parkImage.alt = response.data[i].images[0].altText;
-
+        /*storing the latitude and longitude to fetch weather forecast */
         let longitude = response.data[i].longitude;
         let latitude = response.data[i].latitude;
-
+        /*adding event listener for weather button*/
         button.addEventListener("click", function (e) {
           fetch(
             `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&units=imperial&exclude=minutely,hourly,alerts&appid=559a0a1d51db545bab6fe7ef56826991`
@@ -79,11 +81,11 @@ searchBtn.addEventListener("click", function (event) {
             })
             .then(function (response) {
               console.log(response);
-
+            /*resetting days variable if another weather button was already clicked*/
               if (days != "") {
                 days = "";
               }
-
+             /*looping through the weather data to display the 5 day forecast*/
               for (let x = 0; x < 5; x++) {
                 days =
                   days +
@@ -106,14 +108,14 @@ searchBtn.addEventListener("click", function (event) {
         });
 
                 listItem();
-
+                /*resetting form when page reloads*/
                 form.reset();
-
+                
                 button.textContent = "Local Weather ⛅";
                 parkName.textContent = response.data[i].fullName;
                 description.textContent = response.data[i].description;
             }
-
+            /*defining the list function to append the search results list*/
             function listItem() {
                 list.appendChild(items);
                 items.appendChild(parkImage);
@@ -129,7 +131,7 @@ searchBtn.addEventListener("click", function (event) {
             }
     });
 });
-
+/*defining function to display previous searches*/
 function renderLastInput() {
   var lastInput = localStorage.getItem("stateName");
 

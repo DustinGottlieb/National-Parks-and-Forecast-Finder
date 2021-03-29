@@ -21,6 +21,35 @@ PROCESS:
 
 We started tackling this project by first looking through a long list of server-side APIs. Besides looking for APIs that interested us, we also had to find two that could be somehow useful when used together. After bouncing around a few ideas, we landed on using the National Park Service API and the OpenWeather API. The idea was to create a National Parks Finder webpage where you could search by US state abbreviations and get back a list of that state's national parks (using the National Park Service API), as well as the 5-day forecast for each individual park (using the OpenWeather API). This was meant to be useful to users who want to visit a national park and properly plan for weather conditions. 
 
+In order to better understand and organize our idea, we created a User Story and Acceptance Criteria, dictating the purpose and use of our National Parks Finder: 
+
+
+USER STORY:
+
+AS A traveler and park lover
+
+I WANT to find a list of National Parks in different US states, and the weather forecast associated with each park
+
+SO THAT I can plan which National Park to visit and properly prepare for weather conditions
+
+
+ACCEPTANCE CRITERIA: 
+
+GIVEN a National Parks Finder webpage
+
+WHEN I search a state by its name abbreviation 
+THEN I am presented with a list of National Parks in that state
+
+WHEN I view each National Park on the list
+THEN I see the park name, a description of the park, an image from the park, and a “local weather” button
+
+WHEN I click on the “local weather” button
+THEN I am presented with that park’s 5-day forecast, which shows the date, an icon showing weather conditions, the temperature, and a brief description of that day’s weather
+
+WHEN I refresh the page
+THEN I am shown the last state I searched in the input field
+
+
 Once our idea for the webpage was solidified, we created a Git repository that we all had access to, with our own individual branches. 
 
 We then built the HTML skeleton of the webpage, and did some intial styling in CSS. This gave us a clearer visual of what the website could look like, with the idea that we could style it and edit it further as we went along. At this stage, we also added all relevant relative paths to our HTML and CSS. 

@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@600&family=Della+Respira&display=swap');
-
 :root {
     --darkgreen: #2D4B1E;
     --lightorange: #C56C39;
@@ -7,7 +6,6 @@
 }
 
 * {
-
     font-family: 'Comfortaa', cursive;
     font-weight: bold;
     background-color: lightgrey;
@@ -22,33 +20,35 @@ header {
     text-align: center;
     padding: 40px;
     color: var(--lightorange);
-    background-color: var(--darkgreen);
+    background: linear-gradient(180deg, rgba(91, 139, 67, 1) 0%, rgba(16, 34, 15, 1) 82%, rgba(153, 84, 44, 1) 100%);
 }
 
 .title {
-    background-color: var(--darkgreen);
+    background-color: transparent;
     font-size: 4rem;
 }
 
-ul{
-    list-style-type: none;
-    text-align: center;
-    padding:0;
-
+#quote {
+    background: transparent;
 }
 
-li{
+ul {
+    list-style-type: none;
+    text-align: center;
+    padding: 0;
+}
+
+li {
     list-style-type: none;
     flex-direction: row;
 }
 
-.parks h2{
+.parks h2 {
     margin-bottom: 35px;
     color: var(--lightorange);
 }
 
-
-.list{
+.list {
     border: 5px solid var(--darkorange);
     padding: 20px;
     margin-bottom: 15px;
@@ -69,15 +69,6 @@ ul {
     border-radius: 25px;
     box-shadow: 10px 5px 5px var(--darkgreen);
     background-color: lightgray;
-}
-
-.buttonBtn {
-    border-radius: 5px;
-    transition: background 0.3s ease-in-out;
-}
-
-.buttonBtn:hover{
-    background: var(--darkorange);
 }
 
 form {
@@ -130,18 +121,24 @@ input {
     color: ivory;
 }
 
-.day, .temp, .icon, .date, .condition {
+.day,
+.temp,
+.icon,
+.date,
+.condition {
     background-color: rgb(133, 152, 171);
 }
 
-.searchButton {
+.searchButton,
+.buttonBtn {
     padding: 8px;
     background: var(--lightorange);
     border-radius: 5px;
     transition: background 0.3s ease-in-out;
 }
 
-.searchButton:hover {
+.searchButton:hover,
+.buttonBtn:hover {
     background: var(--darkorange);
 }
 
@@ -153,10 +150,8 @@ input {
         align-items: center;
         justify-content: space-evenly;
     }
-
     .parkImage {
         width: 100%;
         object-fit: contain;
     }
-
 }

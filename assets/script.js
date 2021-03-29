@@ -105,28 +105,28 @@ searchBtn.addEventListener("click", function (event) {
             });
         });
 
-        listItem();
+                listItem();
 
-        form.reset();
+                form.reset();
 
-        button.textContent = "Local Weather ⛅";
-        parkName.textContent = response.data[i].fullName;
-        description.textContent = response.data[i].description;
-      }
+                button.textContent = "Local Weather ⛅";
+                parkName.textContent = response.data[i].fullName;
+                description.textContent = response.data[i].description;
+            }
 
-      function listItem() {
-        list.appendChild(items);
-        items.appendChild(parkImage);
-        items.appendChild(parkName);
-        items.appendChild(description);
-        items.appendChild(button);
+            function listItem() {
+                list.appendChild(items);
+                items.appendChild(parkImage);
+                items.appendChild(parkName);
+                items.appendChild(description);
+                items.appendChild(button);
 
-        items.setAttribute("class", "list");
-        parkName.setAttribute("class", "ParkName");
-        description.setAttribute("class", "description");
-        button.setAttribute("class", "buttonBtn");
-        parkImage.setAttribute("class", "parkImage");
-      }
+                items.setAttribute("class", "list");
+                parkName.setAttribute("class", "ParkName");
+                description.setAttribute("class", "description");
+                button.setAttribute("class", "buttonBtn");
+                parkImage.setAttribute("class", "parkImage");
+            }
     });
 });
 

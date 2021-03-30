@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@600&family=Della+Respira&display=swap');
 :root {
     --darkgreen: #2D4B1E;
     --lightorange: #C56C39;
@@ -6,7 +6,7 @@
 }
 
 * {
-    font-family: 'Raleway', sans-serif;;
+    font-family: 'Comfortaa', cursive;
     font-weight: bold;
     background-color: lightgrey;
 }
@@ -20,32 +20,35 @@ header {
     text-align: center;
     padding: 40px;
     color: var(--lightorange);
-    background-color: var(--darkgreen);
+    background: linear-gradient(180deg, rgba(91, 139, 67, 1) 0%, rgba(16, 34, 15, 1) 82%, rgba(153, 84, 44, 1) 100%);
 }
 
-h1 {
-    background-color: var(--darkgreen);
-    font-size: xx-large;
+.title {
+    background-color: transparent;
+    font-size: 4rem;
 }
 
-ul{
+#quote {
+    background: transparent;
+}
+
+ul {
     list-style-type: none;
     text-align: center;
-    padding:0;
-
+    padding: 0;
 }
 
-li{
+li {
     list-style-type: none;
     flex-direction: row;
 }
 
-.parks h2{
+.parks h2 {
     margin-bottom: 35px;
     color: var(--lightorange);
 }
 
-.list{
+.list {
     border: 5px solid var(--darkorange);
     padding: 20px;
     margin-bottom: 15px;
@@ -53,15 +56,21 @@ li{
     box-shadow: 3px 3px 3px #99542C;
 }
 
-.buttonBtn{
-    border-radius: 5px;
-    transition: background 0.3s ease-in-out;
+ul {
+    list-style-type: none;
+    text-align: center;
+    padding: 0;
 }
 
-.buttonBtn:hover{
-    background: var(--darkorange);
+.listItem {
+    border: 5px solid var(--darkorange);
+    padding: 15px;
+    margin-bottom: 30px;
+    border-radius: 25px;
+    box-shadow: 10px 5px 5px var(--darkgreen);
+    background-color: lightgray;
 }
-}
+
 form {
     padding: 40px;
 }
@@ -72,23 +81,77 @@ form h2 {
 
 input {
     height: 38px;
+    background-color: rgb(153, 199, 147);
 }
 
 .parks {
     padding: 40px;
 }
 
-.weather {
-    padding: 40px;
+.parkName {
+    font-weight: bold;
+    font-size: large;
 }
 
-.searchButton {
+.weather-box {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    justify-content: space-evenly;
+    clear: both;
+}
+
+.parkImage {
+    float: left;
+    padding: 10px;
+    border-radius: 20px;
+    max-width: 350px;
+    max-height: 250px;
+}
+
+.day {
     padding: 5px;
+    width: 170px;
+    height: 250px;
+    border: 3px solid var(--lightorange);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: ivory;
+}
+
+.day,
+.temp,
+.icon,
+.date,
+.condition {
+    background-color: rgb(133, 152, 171);
+}
+
+.searchButton,
+.buttonBtn {
+    padding: 8px;
     background: var(--lightorange);
     border-radius: 5px;
     transition: background 0.3s ease-in-out;
 }
 
-.searchButton:hover {
+.searchButton:hover,
+.buttonBtn:hover {
     background: var(--darkorange);
+}
+
+@media screen and (max-width: 1024px) {
+    .weather-box {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+    .parkImage {
+        width: 100%;
+        object-fit: contain;
+    }
 }

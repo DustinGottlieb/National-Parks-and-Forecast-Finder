@@ -75,6 +75,10 @@ form {
     padding: 40px;
 }
 
+#inputBox {
+    align-content: center;
+}
+
 form h2 {
     padding: 10px;
 }
